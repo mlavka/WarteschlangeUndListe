@@ -8,6 +8,5 @@ public class Main {
         warteschlange.einfuegen(patient2);
         warteschlange.einfuegen(patient3);
         System.out.println(warteschlange.entfernen());
-
     }
 }

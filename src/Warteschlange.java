@@ -7,7 +7,6 @@ public class Warteschlange {
         this.ende = null;
     }
 
-
     public void einfuegen(Patient patient) {
         if (ende != null) {
             ende.nachfolgerSetzen(patient);
