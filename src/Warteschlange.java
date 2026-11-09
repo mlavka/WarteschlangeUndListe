@@ -7,6 +7,7 @@ public class Warteschlange {
         this.ende = null;
     }
 
+
     public void einfuegen(Patient patient) {
         if (ende != null) {
             ende.nachfolgerSetzen(patient);
@@ -17,7 +18,19 @@ public class Warteschlange {
         Patient p = anfang;
         if (anfang != null) {
             anfang = anfang.nachfolgerGeben();
-        } else ende = null;
+        }
+        if (anfang == null) ende = null;
         return p;
+    }
+
+    public void informationAusgeben() {
+        Patient current = anfang;
+        if (anfang != null) {
+            while(current.nachfolgerGeben() != null) {
+                System.out.println(current.nameGeben());
+                current = current.nachfolgerGeben();
+            }
+        } else if (ende != null) System.out.println(ende.nameGeben());
+        else System.out.println("Keine Patienten in der Warteschlange.");
     }
 }

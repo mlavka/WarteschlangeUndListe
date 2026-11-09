@@ -1,6 +1,6 @@
 public class Patient {
-    String name;
-    Patient nachfolger;
+    private String name;
+    private Patient nachfolger;
     Patient(String name) {
         this.name = name;
         this.nachfolger = null;
@@ -14,4 +14,5 @@ public class Patient {
     public String nameGeben() {
         return this.name;
     }
+
 }
