@@ -1,18 +1,12 @@
 public class Patient {
     private String name;
-    private Patient nachfolger;
     Patient(String name) {
         this.name = name;
-        this.nachfolger = null;
     }
-    public void nachfolgerSetzen(Patient patient) {
-        this.nachfolger = patient;
-    }
-    public Patient nachfolgerGeben() {
-        return this.nachfolger;
+    public void informationAusgeben() {
+        System.out.println(this.name);
     }
     public String nameGeben() {
         return this.name;
     }
-
 }

@@ -1,6 +1,6 @@
 public class Warteschlange {
-    Patient anfang;
-    Patient ende;
+    Knoten anfang;
+    Knoten ende;
 
     Warteschlange() {
         this.anfang = null;
@@ -8,28 +8,30 @@ public class Warteschlange {
     }
 
     public void einfuegen(Patient patient) {
+        Knoten knoten = new Knoten(patient);
         if (ende != null) {
-            ende.nachfolgerSetzen(patient);
-        } else anfang = patient;
-        ende = patient;
+            ende.nachfolgerSetzen(knoten);
+        } else anfang = knoten;
+        ende = knoten;
     }
     public Patient entfernen() {
-        Patient p = anfang;
+        Patient entfernt = null;
         if (anfang != null) {
+            entfernt = anfang.
             anfang = anfang.nachfolgerGeben();
         }
         if (anfang == null) ende = null;
-        return p;
+        return k;
     }
 
     public void informationAusgeben() {
-        Patient current = anfang;
+        Knoten current = anfang;
         if (anfang != null) {
             while(current.nachfolgerGeben() != null) {
-                System.out.println(current.nameGeben());
+                System.out.println(current.inhalt.nameGeben());
                 current = current.nachfolgerGeben();
             }
-        } else if (ende != null) System.out.println(ende.nameGeben());
+        } else if (ende != null) System.out.println(ende.inhalt.nameGeben());
         else System.out.println("Keine Patienten in der Warteschlange.");
     }
 }
