@@ -17,21 +17,20 @@ public class Warteschlange {
     public Patient entfernen() {
         Patient entfernt = null;
         if (anfang != null) {
-            entfernt = anfang.
+            entfernt = anfang.getInhalt();
             anfang = anfang.nachfolgerGeben();
         }
         if (anfang == null) ende = null;
-        return k;
+        return entfernt;
     }
 
     public void informationAusgeben() {
         Knoten current = anfang;
         if (anfang != null) {
             while(current.nachfolgerGeben() != null) {
-                System.out.println(current.inhalt.nameGeben());
+                System.out.println(current.getInhalt().nameGeben());
                 current = current.nachfolgerGeben();
             }
-        } else if (ende != null) System.out.println(ende.inhalt.nameGeben());
-        else System.out.println("Keine Patienten in der Warteschlange.");
+        } else System.out.println("Keine Patienten in der Warteschlange.");
     }
 }

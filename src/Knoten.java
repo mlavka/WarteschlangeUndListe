@@ -1,6 +1,6 @@
 public class Knoten {
-    Patient inhalt;
-    Knoten nachfolger;
+    private Patient inhalt;
+    private Knoten nachfolger;
 
     Knoten(Patient inhalt) {
         this.inhalt = inhalt;
@@ -16,5 +16,7 @@ public class Knoten {
         inhalt.informationAusgeben();
         if(nachfolger != null) nachfolger.informationAusgeben();
     }
-    get inhalt
+    public Patient getInhalt() {
+        return this.inhalt;
+    }
 }
