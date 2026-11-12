@@ -1,8 +1,8 @@
 public class Knoten {
-    private Patient inhalt;
+    private Datenelement inhalt;
     private Knoten nachfolger;
 
-    Knoten(Patient inhalt) {
+    Knoten(Datenelement inhalt) {
         this.inhalt = inhalt;
         this.nachfolger = null;
     }
@@ -14,9 +14,9 @@ public class Knoten {
     }
     public void informationAusgeben() {
         inhalt.informationAusgeben();
-        if(nachfolger != null) nachfolger.informationAusgeben();
+        if(nachfolger != null) nachfolger.informationAusgeben(); //rekursiv
     }
-    public Patient getInhalt() {
+    public Datenelement DatenelementGeben() {
         return this.inhalt;
     }
 }

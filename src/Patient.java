@@ -1,4 +1,4 @@
-public class Patient {
+public class Patient implements Datenelement {
     private String name;
     Patient(String name) {
         this.name = name;

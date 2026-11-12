@@ -7,30 +7,25 @@ public class Warteschlange {
         this.ende = null;
     }
 
-    public void einfuegen(Patient patient) {
-        Knoten knoten = new Knoten(patient);
+    public void einfuegen(Datenelement datenelement) {
+        Knoten knoten = new Knoten(datenelement);
         if (ende != null) {
             ende.nachfolgerSetzen(knoten);
         } else anfang = knoten;
         ende = knoten;
     }
-    public Patient entfernen() {
-        Patient entfernt = null;
+    public Datenelement entfernen() {
+        Datenelement entfernt = null;
         if (anfang != null) {
-            entfernt = anfang.getInhalt();
+            entfernt = anfang.DatenelementGeben();
             anfang = anfang.nachfolgerGeben();
+            if (anfang == null) ende = null;
         }
-        if (anfang == null) ende = null;
         return entfernt;
     }
 
     public void informationAusgeben() {
-        Knoten current = anfang;
-        if (anfang != null) {
-            while(current.nachfolgerGeben() != null) {
-                System.out.println(current.getInhalt().nameGeben());
-                current = current.nachfolgerGeben();
-            }
-        } else System.out.println("Keine Patienten in der Warteschlange.");
+        if (anfang != null) anfang.informationAusgeben(); // ruft die Knoten-Methode auf
+        else System.out.println("Keine Patienten in der Warteschlange.");
     }
 }
