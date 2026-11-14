@@ -1,12 +1,14 @@
 public class Main {
     static void main() {
-        Warteschlange warteschlange = new Warteschlange();
+        Liste liste = new Liste();
+        Patient patient1 = new Patient ("John");
         Patient patient2 = new Patient ("Kate");
         Patient patient3 = new Patient ("Bea");
-        Patient patient1 = new Patient ("John");
-        warteschlange.einfuegen(patient1);
-        warteschlange.einfuegen(patient2);
-        warteschlange.einfuegen(patient3);
-        System.out.println(warteschlange.entfernen());
+        liste.vorneEinfuegen(patient1);
+        liste.hintenEinfuegen(patient2);
+        // liste.hintenEinfuegen(patient3);
+        liste.einfuegenVor(patient3, patient2);
+        liste.informationAusgeben();
+        System.out.println(liste.laengeGeben());
     }
 }
