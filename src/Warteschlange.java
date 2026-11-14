@@ -1,4 +1,4 @@
-public class Warteschlange {
+/* public class Warteschlange {
     Knoten anfang;
     Knoten ende;
 
@@ -29,3 +29,4 @@ public class Warteschlange {
         else System.out.println("Keine Patienten in der Warteschlange.");
     }
 }
+*/

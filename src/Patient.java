@@ -4,7 +4,7 @@ public class Patient implements Datenelement {
         this.name = name;
     }
     public void informationAusgeben() {
-        System.out.println(this.name);
+        System.out.print(this.name + " ");
     }
     public String nameGeben() {
         return this.name;

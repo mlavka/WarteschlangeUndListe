@@ -6,9 +6,8 @@ public class Main {
         Patient patient3 = new Patient ("Bea");
         liste.vorneEinfuegen(patient1);
         liste.hintenEinfuegen(patient2);
-        // liste.hintenEinfuegen(patient3);
-        liste.einfuegenVor(patient3, patient2);
-        liste.informationAusgeben();
-        System.out.println(liste.laengeGeben());
+        liste.hintenEinfuegen(patient3);
+        // liste.informationAusgeben();
+        // System.out.println(liste.laengeGeben());
     }
 }

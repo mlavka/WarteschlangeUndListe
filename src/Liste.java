@@ -1,53 +1,48 @@
 public class Liste {
-    private Knoten anfang;
+    private ListenElement anfang;
 
     Liste() {
-        anfang = null;
+        Abschluss abschluss = new Abschluss();
+        anfang = abschluss;
+    }
+    public void informationAusgeben() {
+        ListenElement aktuell = anfang;
+        do {
+            aktuell.informationAusgeben();
+            aktuell = aktuell.nachfolgerGeben();
+        } while (aktuell.datenelementGeben() != null); // falls anfang = abschluss ist, dann wird die Schleife nur einmal ausgeführt
+        System.out.println();
     }
     public void vorneEinfuegen(Datenelement datenelement) {
         Knoten knoten = new Knoten(datenelement, anfang);
         anfang = knoten;
     }
     public void hintenEinfuegen(Datenelement datenelement) {
-        if (anfang != null) anfang.hintenEinfuegen(datenelement);
-        else vorneEinfuegen(datenelement);
+        anfang = anfang.hintenEinfuegen(datenelement);
     }
-    public void einfuegenVor(Datenelement datenelement, Datenelement vergleich) {
-        if (anfang != null) anfang = anfang.einfuegenVor(datenelement, vergleich);
-        else vorneEinfuegen(datenelement);
+    public void einfuegenVor(Datenelement d, Datenelement vergleich) {
+        anfang = anfang.einfuegenVor(d, vergleich);
     }
     public void sortiertEinfuegen(Datenelement datenelement) {
-        if (anfang != null) anfang.sortiertEinfuegen(datenelement);
-        else vorneEinfuegen(datenelement);
+        anfang.sortiertEinfuegen(datenelement);
     }
     public Datenelement anfangEntfernen() {
-        if (anfang != null) {
-            Knoten k = anfang;
-            anfang = anfang.nachfolgerGeben();
-            return k.DatenelementGeben();
-        }
-        else return null;
+        ListenElement l = anfang;
+        anfang = anfang.nachfolgerGeben();
+        return l.datenelementGeben();
     }
     public Datenelement endeEntfernen() {
-        if (anfang != null) {
-            Datenelement d = anfang.endeGeben();
-            anfang = anfang.endeEntfernen();
-            return d;
-        } else return null;
+        Datenelement d = anfang.endeGeben(null);
+        anfang = anfang.knotenEntfernen(d);
+        return d;
     }
     public void knotenEntfernen(Datenelement d) {
-        if (anfang != null) anfang = anfang.knotenEntfernen(d);
+        anfang = anfang.knotenEntfernen(d);
     }
     public int laengeGeben() {
-        if (anfang != null) return anfang.restLaengeGeben();
-        else return 0;
-    }
-    public void informationAusgeben() {
-        if (anfang != null) anfang.informationAusgeben();
-        else System.out.println("Die Liste ist leer.");
+        return anfang.restLaengeGeben();
     }
     public Datenelement suchen(String s) {
-        if (anfang != null) return anfang.suchen(s);
-        else return null;
+        return anfang.suchen(s);
     }
 }
